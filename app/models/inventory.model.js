@@ -36,17 +36,6 @@ const Inventory = sequelize.define("Inventory", {
     allowNull: false,
     defaultValue: 1,
   },
-}, {
-  validate: {
-    itemOrBlock() {
-      if ((this.inv_item_id === null) && (this.block_id === null)) {
-        throw new Error('Either inv_item_id or block_id must be set.');
-      }
-      if ((this.inv_item_id !== null) && (this.block_id !== null)) {
-        throw new Error('Either inv_item_id or block_id must be set, but not both.');
-      }
-    }
-  }
 });
 
 export default Inventory;
