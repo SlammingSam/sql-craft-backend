@@ -9,32 +9,42 @@ const Inventory = sequelize.define("Inventory", {
   },
   player_id: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
     references: {
-      model: 'Players', // table name (or pass the model object)
-      key: 'player_id',        // <- most likely correct PK column
+      model: "Players",
+      key: "player_id",
     },
+    onDelete: "SET NULL",
+    onUpdate: "CASCADE",
   },
   inv_item_id: {
     type: DataTypes.INTEGER,
     allowNull: true,
     references: {
-      model: 'Items',
-      key: 'item_id',        // <- changed to 'id'
+      model: "Items",
+      key: "item_id",
     },
+    onDelete: "SET NULL",
+    onUpdate: "CASCADE",
   },
   block_id: {
     type: DataTypes.INTEGER,
     allowNull: true,
     references: {
-      model: 'Blocks',
-      key: 'block_id',        // <- changed to 'id'
+      model: "Blocks",
+      key: "block_id",
     },
+    onDelete: "SET NULL",
+    onUpdate: "CASCADE",
   },
   quantity: {
     type: DataTypes.INTEGER,
     allowNull: false,
     defaultValue: 1,
+  },
+  item_id: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
   },
 });
 
