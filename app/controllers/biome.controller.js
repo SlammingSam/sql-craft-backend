@@ -1,5 +1,5 @@
 import db from "../models/index.js";
-const Biome = db.biome;
+const Biome = db.Biome;
 const Op = db.Sequelize.Op;
 const exports = {};
 

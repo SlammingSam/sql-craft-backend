@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelizeInstance.js";
 
-const Dimentions = sequelize.define("Dimentions", {
+const Dimensions = sequelize.define("Dimensions", {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -21,4 +21,4 @@ const Dimentions = sequelize.define("Dimentions", {
   },
 });
 
-export default Dimentions;
+export default Dimensions;

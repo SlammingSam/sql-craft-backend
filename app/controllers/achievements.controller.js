@@ -1,5 +1,5 @@
 import db from "../models/index.js";
-const Achievements = db.achievements;
+const Achievements = db.Achievements;
 const Op = db.Sequelize.Op;
 const exports = {};
 

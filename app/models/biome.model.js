@@ -14,7 +14,7 @@ const Biome = sequelize.define("Biome", {
   dimension: { 
     type: DataTypes.STRING, 
     allowNull: false,
-    references: { model: "Dimentions", key: "name" },
+    references: { model: "Dimensions", key: "name" },
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
   },

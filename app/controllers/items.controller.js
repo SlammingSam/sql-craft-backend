@@ -1,5 +1,5 @@
 import db from "../models/index.js";
-const Items = db.items;
+const Items = db.Items;
 const Op = db.Sequelize.Op;
 const exports = {};
 

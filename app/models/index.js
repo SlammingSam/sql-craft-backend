@@ -11,7 +11,7 @@ Blocks
 Enchantments
 EnchantmentRecipes
 Achievements
-Recipies
+Recipes
 Items
 Redstone
 Player
@@ -21,7 +21,7 @@ Entity
 Villager
 Worlds
 WorldSettings
-Dimentions
+Dimensions
 Biome
 GeneratedStructures
 Mobs
@@ -31,7 +31,7 @@ import Inventory from "./inventory.model.js";
 import Blocks from "./blocks.model.js";
 import Enchantments from "./enchantments.model.js";
 import Achievements from "./achievements.model.js";
-import Recipies from "./recipies.model.js";
+import Recipes from "./recipies.model.js";
 import Items from "./items.model.js";
 import Player from "./player.model.js";
 import Effects from "./effects.model.js";
@@ -39,7 +39,7 @@ import Chunk from "./chunk.model.js";
 import Entity from "./entity.model.js";
 import Worlds from "./worlds.model.js";
 import WorldSettings from "./worldSettings.model.js";
-import Dimentions from "./dimentions.model.js";
+import Dimensions from "./dimentions.model.js";
 import Biome from "./biome.model.js";
 import GeneratedStructures from "./generatedStructures.model.js";
 import BlockLoot from "./blockLoot.model.js";
@@ -55,7 +55,7 @@ db.Inventory = Inventory;
 db.Blocks = Blocks;
 db.Enchantments = Enchantments;
 db.Achievements = Achievements;
-db.Recipies = Recipies;
+db.Recipes = Recipes;
 db.Items = Items;
 db.Player = Player;
 db.Effects = Effects;
@@ -63,7 +63,7 @@ db.Chunk = Chunk;
 db.Entity = Entity;
 db.Worlds = Worlds;
 db.WorldSettings = WorldSettings;
-db.Dimentions = Dimentions;
+db.Dimensions = Dimensions;
 db.Biome = Biome;
 db.GeneratedStructures = GeneratedStructures;
 db.BlockLoot = BlockLoot;
@@ -97,10 +97,10 @@ db.Particles.belongsTo(db.Entity, { foreignKey: "id" });
 // Items <-> Enchantments, Recipes, Inventory, Chunk, blockloot
 db.Items.hasMany(db.Enchantments, { foreignKey: "id" });
 db.Enchantments.belongsTo(db.Items, { foreignKey: "id" });
-db.Enchantments.hasMany(db.Recipies, { foreignKey: "id" });
+db.Enchantments.hasMany(db.Recipes, { foreignKey: "id" });
 
-db.Items.hasMany(db.Recipies, { foreignKey: "id" });
-db.Recipies.belongsTo(db.Items, { foreignKey: "id" });
+db.Items.hasMany(db.Recipes, { foreignKey: "id" });
+db.Recipes.belongsTo(db.Items, { foreignKey: "id" });
 
 db.Items.hasMany(db.Inventory, { foreignKey: "id" });
 db.Inventory.belongsTo(db.Items, { foreignKey: "id" });
@@ -114,16 +114,16 @@ db.Items.belongsTo(db.Chunk, { foreignKey: "id" });
 db.Chunk.hasMany(db.Items, { foreignKey: "id" });
 
 // Worlds -> Dimentions, WorldSettings
-db.Worlds.hasMany(db.Dimentions, { foreignKey: "id" });
-db.Dimentions.belongsTo(db.Worlds, { foreignKey: "id" });
+db.Worlds.hasMany(db.Dimensions, { foreignKey: "id" });
+db.Dimensions.belongsTo(db.Worlds, { foreignKey: "id" });
 db.WorldSettings.hasMany(db.Worlds, { foreignKey: "id" });
 db.Worlds.belongsTo(db.WorldSettings, { foreignKey: "id" });
 
-// Dimentions -> Chunk, Biome
-db.Dimentions.hasMany(db.Chunk, { foreignKey: "id" });
-db.Chunk.belongsTo(db.Dimentions, { foreignKey: "id" });
-db.Dimentions.hasMany(db.Biome, { foreignKey: "id" });
-db.Biome.belongsTo(db.Dimentions, { foreignKey: "id" });
+// Dimensions -> Chunk, Biome
+db.Dimensions.hasMany(db.Chunk, { foreignKey: "id" });
+db.Chunk.belongsTo(db.Dimensions, { foreignKey: "id" });
+db.Dimensions.hasMany(db.Biome, { foreignKey: "id" });
+db.Biome.belongsTo(db.Dimensions, { foreignKey: "id" });
 
 // Chunk -> Entity, Player (location)
 db.Chunk.hasMany(db.Entity, { foreignKey: "id" });
