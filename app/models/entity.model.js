@@ -28,11 +28,11 @@ const Entity = sequelize.define("Entity", {
     allowNull: false 
   },
   metadatakeys: { 
-    type: DataTypes.JSON, 
+    type: DataTypes.STRING, 
     allowNull: false 
   },
   drops: { 
-    type: DataTypes.JSON, 
+    type: DataTypes.STRING, 
     allowNull: false 
   },
   // health: { type: DataTypes.INTEGER, allowNull: true },

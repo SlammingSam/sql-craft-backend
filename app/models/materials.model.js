@@ -8,7 +8,7 @@ const Materials = sequelize.define("Materials", {
     primaryKey: true,
   },
   mateial: { 
-    type: DataTypes.JSON, 
+    type: DataTypes.STRING, 
     allowNull: true,
   },
 });

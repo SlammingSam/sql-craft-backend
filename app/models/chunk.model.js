@@ -14,7 +14,7 @@ const Chunk = sequelize.define("Chunk", {
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
   },
-  blocks: { type: DataTypes.JSON, allowNull: true },
+  blocks: { type: DataTypes.STRING, allowNull: true },
   x: { type: DataTypes.INTEGER, allowNull: false },
   y: { type: DataTypes.INTEGER, allowNull: false },
   z: { type: DataTypes.INTEGER, allowNull: false },
