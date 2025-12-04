@@ -7,22 +7,18 @@ const Recipies = sequelize.define("Recipies", {
     autoIncrement: true,
     primaryKey: true,
   },
-  output_item_id: { 
-    type: DataTypes.INTEGER, 
-    allowNull: false,
-    references: { model: "Items", key: "item_id" },
-    onDelete: "CASCADE",
-    onUpdate: "CASCADE",
+  inShape: {
+    type: DataTypes.JSON,
+    allowNull: true,
   },
-  slot1_item_id: { type: DataTypes.INTEGER, allowNull: true },
-  slot2_item_id: { type: DataTypes.INTEGER, allowNull: true },
-  slot3_item_id: { type: DataTypes.INTEGER, allowNull: true },
-  slot4_item_id: { type: DataTypes.INTEGER, allowNull: true },
-  slot5_item_id: { type: DataTypes.INTEGER, allowNull: true },
-  slot6_item_id: { type: DataTypes.INTEGER, allowNull: true },
-  slot7_item_id: { type: DataTypes.INTEGER, allowNull: true },
-  slot8_item_id: { type: DataTypes.INTEGER, allowNull: true },
-  slot9_item_id: { type: DataTypes.INTEGER, allowNull: true },
+  ingredients: {
+    type: DataTypes.JSON,
+    allowNull: false,
+  },
+  result: { 
+    type: DataTypes.JSON, 
+    allowNull: false,
+  },
 });
 
 export default Recipies;

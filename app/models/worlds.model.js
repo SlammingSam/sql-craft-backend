@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelizeInstance.js";
 
 const Worlds = sequelize.define("Worlds", {
-  world_id: {
+  id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
@@ -12,7 +12,7 @@ const Worlds = sequelize.define("Worlds", {
   setting_id: { 
     type: DataTypes.INTEGER, 
     allowNull: true,
-    references: { model: "WorldSettings", key: "setting_id" },
+    references: { model: "WorldSettings", key: "id" },
     onDelete: "SET NULL",
     onUpdate: "CASCADE",
   },

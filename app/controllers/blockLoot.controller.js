@@ -1,9 +1,9 @@
 import db from "../models/index.js";
-const EnchantmentRecipe = db.enchantmentRecipe;
+const BlockLoot = db.BlockLoot;
 const Op = db.Sequelize.Op;
 const exports = {};
 
-// Create and Save a new EnchantmentRecipe
+// Create and Save a new BlockLoot
 exports.create = (req, res) => {
   // Validate request
   if (!req.body) {
@@ -13,125 +13,125 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a EnchantmentRecipe
+  // Create a BlockLoot
   const modelData = req.body;
 
-  // Save EnchantmentRecipe in the database
-  EnchantmentRecipe.create(modelData)
+  // Save BlockLoot in the database
+  BlockLoot.create(modelData)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the EnchantmentRecipe."
+          err.message || "Some error occurred while creating the BlockLoot."
       });
     });
 };
 
-// Retrieve all EnchantmentRecipe from the database.
+// Retrieve all BlockLoot from the database.
 exports.findAll = (req, res) => {
-  EnchantmentRecipe.findAll()
+  BlockLoot.findAll()
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving enchantmentRecipe."
+          err.message || "Some error occurred while retrieving BlockLoot."
       });
     });
 };
 
-// Find a single EnchantmentRecipe with an id
+// Find a single BlockLoot with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  EnchantmentRecipe.findByPk(id)
+  BlockLoot.findByPk(id)
     .then(data => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find EnchantmentRecipe with id=${id}.`
+          message: `Cannot find BlockLoot with id=${id}.`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving EnchantmentRecipe with id=" + id
+        message: "Error retrieving BlockLoot with id=" + id
       });
     });
 };
 
-// Update a EnchantmentRecipe by the id in the request
+// Update a BlockLoot by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  EnchantmentRecipe.update(req.body, {
+  BlockLoot.update(req.body, {
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "EnchantmentRecipe was updated successfully."
+          message: "BlockLoot was updated successfully."
         });
       } else {
         res.send({
-          message: `Cannot update EnchantmentRecipe with id=${id}. Maybe EnchantmentRecipe was not found or req.body is empty!`
+          message: `Cannot update BlockLoot with id=${id}. Maybe BlockLoot was not found or req.body is empty!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating EnchantmentRecipe with id=" + id
+        message: "Error updating BlockLoot with id=" + id
       });
     });
 };
 
-// Delete a EnchantmentRecipe with the specified id in the request
+// Delete a BlockLoot with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  EnchantmentRecipe.destroy({
+  BlockLoot.destroy({
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "EnchantmentRecipe was deleted successfully!"
+          message: "BlockLoot was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete EnchantmentRecipe with id=${id}. Maybe EnchantmentRecipe was not found!`
+          message: `Cannot delete BlockLoot with id=${id}. Maybe BlockLoot was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete EnchantmentRecipe with id=" + id
+        message: "Could not delete BlockLoot with id=" + id
       });
     });
 };
 
-// Delete all EnchantmentRecipe from the database.
+// Delete all BlockLoot from the database.
 exports.deleteAll = (req, res) => {
-  EnchantmentRecipe.destroy({
+  BlockLoot.destroy({
     where: {},
     truncate: false
   })
     .then(nums => {
-      res.send({ message: `${nums} EnchantmentRecipe were deleted successfully!` });
+      res.send({ message: `${nums} BlockLoot were deleted successfully!` });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all enchantmentRecipe."
+          err.message || "Some error occurred while removing all BlockLoot."
       });
     });
 };
 
-// Find all published EnchantmentRecipe
+// Find all published BlockLoot
 exports.findAllPublished = (req, res) => {
 
 };

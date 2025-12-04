@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelizeInstance.js";
 
 const Blocks = sequelize.define("Blocks", {
-  block_id: {
+  id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
@@ -11,8 +11,12 @@ const Blocks = sequelize.define("Blocks", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  description: {
-    type: DataTypes.TEXT,
+  hardness: {
+    type: DataTypes.DECIMAL,
+    allowNull: true,
+  },
+  resistance: {
+    type: DataTypes.DECIMAL,
     allowNull: true,
   },
   stackSize: {
@@ -20,10 +24,22 @@ const Blocks = sequelize.define("Blocks", {
     allowNull: false,
     defaultValue: 64,
   },
+  diggable: {
+    type: DataTypes.BOOLEAN,
+    allowNull: true,
+  },
+  transparent: {
+    type: DataTypes.BOOLEAN,
+    allowNull: true,
+  },
+  emitLight: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+  },
   conductive:{
     type: DataTypes.BOOLEAN,
     allowNull: false,
-    defaultValue: false,
+    defaultValue: true,
   },
   falls: {
     type: DataTypes.BOOLEAN,

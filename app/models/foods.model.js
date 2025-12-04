@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelizeInstance.js";
 
-const WorldSettings = sequelize.define("WorldSettings", {
+const Foods = sequelize.define("Foods", {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -11,22 +11,26 @@ const WorldSettings = sequelize.define("WorldSettings", {
     type: DataTypes.STRING, 
     allowNull: false 
   },
-  resource: { 
-    type: DataTypes.STRING, 
-    allowNull: true 
+  stackSize: { 
+    type: DataTypes.INTEGER, 
+    allowNull: false 
   },
-  default: { 
-    type: DataTypes.DECIMAL, 
-    allowNull: true 
-  },
-  min: { 
+  foodPoints: { 
     type: DataTypes.DECIMAL, 
     allowNull: false 
   },
-  max: { 
+  saturation: { 
+    type: DataTypes.DECIMAL, 
+    allowNull: false 
+  },
+  effectiveQuality: { 
+    type: DataTypes.DECIMAL, 
+    allowNull: false 
+  },
+  saturationRation: { 
     type: DataTypes.DECIMAL, 
     allowNull: false 
   },
 });
 
-export default WorldSettings;
+export default Foods;

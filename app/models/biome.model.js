@@ -2,18 +2,37 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelizeInstance.js";
 
 const Biome = sequelize.define("Biome", {
-  biome_id: {
+  id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
-  name: { type: DataTypes.STRING, allowNull: false },
-  dimension_id: { 
-    type: DataTypes.INTEGER, 
+  name: { 
+    type: DataTypes.STRING, 
+    allowNull: false 
+  },
+  dimension: { 
+    type: DataTypes.STRING, 
     allowNull: false,
-    references: { model: "Dimentions", key: "dimension_id" },
+    references: { model: "Dimentions", key: "name" },
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
+  },
+  category: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  temperature: {
+    type: DataTypes.DECIMAL,
+    allowNull: false,
+  },
+  has_precipitation: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+  },
+  color: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
   },
 });
 

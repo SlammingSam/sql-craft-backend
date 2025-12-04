@@ -2,19 +2,23 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelizeInstance.js";
 
 const Dimentions = sequelize.define("Dimentions", {
-  dimension_id: {
+  id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
-  world_id: { 
-    type: DataTypes.INTEGER, 
+  // world_id: { 
+  //   type: DataTypes.INTEGER, 
+  //   allowNull: false,
+  //   references: { model: "Worlds", key: "id" },
+  //   onDelete: "CASCADE",
+  //   onUpdate: "CASCADE",
+  // },
+  name: { 
+    type: DataTypes.STRING, 
+    unique: true,
     allowNull: false,
-    references: { model: "Worlds", key: "world_id" },
-    onDelete: "CASCADE",
-    onUpdate: "CASCADE",
   },
-  name: { type: DataTypes.STRING, allowNull: false },
 });
 
 export default Dimentions;

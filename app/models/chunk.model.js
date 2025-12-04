@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelizeInstance.js";
 
 const Chunk = sequelize.define("Chunk", {
-  chunk_id: {
+  id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Chunk = sequelize.define("Chunk", {
   dimension_id: { 
     type: DataTypes.INTEGER, 
     allowNull: false,
-    references: { model: "Dimentions", key: "dimension_id" },
+    references: { model: "Dimentions", key: "id" },
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
   },
