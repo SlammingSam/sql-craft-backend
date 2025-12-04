@@ -1,24 +1,24 @@
 import { Router } from 'express';
-import DimentionsController from '../controllers/dimentions.controller.js';
+import DimensionsController from '../controllers/dimentions.controller.js';
 
 const router = Router();
 
 // Create a new dimension
-router.post('/', DimentionsController.create);
+router.post('/', DimensionsController.create);
 
 // Retrieve all dimensions
-router.get('/', DimentionsController.findAll);
+router.get('/', DimensionsController.findAll);
 
 // Retrieve a single dimension by id
-router.get('/:id', DimentionsController.findOne);
+router.get('/:id', DimensionsController.findOne);
 
 // Update a dimension by id
-router.put('/:id', DimentionsController.update);
+router.put('/:id', DimensionsController.update);
 
 // Delete a dimension by id
-router.delete('/:id', DimentionsController.delete);
+router.delete('/:id', DimensionsController.delete);
 
 // Delete all dimensions
-router.delete('/', DimentionsController.deleteAll);
+router.delete('/', DimensionsController.deleteAll);
 
 export default router;

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import ParticlesController from '../controllers/Particles.controller.js';
+import ParticlesController from '../controllers/particles.controller.js';
 
 const router = Router();
 

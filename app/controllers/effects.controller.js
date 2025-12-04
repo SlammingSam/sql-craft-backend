@@ -1,5 +1,5 @@
 import db from "../models/index.js";
-const Effects = db.effects;
+const Effects = db.Effects;
 const Op = db.Sequelize.Op;
 const exports = {};
 

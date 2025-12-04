@@ -10,7 +10,7 @@ const Chunk = sequelize.define("Chunk", {
   dimension_id: { 
     type: DataTypes.INTEGER, 
     allowNull: false,
-    references: { model: "Dimentions", key: "id" },
+    references: { model: "Dimensions", key: "id" },
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
   },

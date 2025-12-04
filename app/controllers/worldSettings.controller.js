@@ -1,5 +1,5 @@
 import db from "../models/index.js";
-const WorldSettings = db.worldSettings;
+const WorldSettings = db.WorldSettings;
 const Op = db.Sequelize.Op;
 const exports = {};
 

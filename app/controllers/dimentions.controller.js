@@ -1,9 +1,9 @@
 import db from "../models/index.js";
-const Dimentions = db.dimentions;
+const Dimensions = db.Dimensions;
 const Op = db.Sequelize.Op;
 const exports = {};
 
-// Create and Save a new Dimentions
+// Create and Save a new Dimensions
 exports.create = (req, res) => {
   // Validate request
   if (!req.body) {
@@ -13,110 +13,110 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a Dimentions
+  // Create a Dimensions
   const modelData = req.body;
 
-  // Save Dimentions in the database
-  Dimentions.create(modelData)
+  // Save Dimensions in the database
+  Dimensions.create(modelData)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Dimentions."
+          err.message || "Some error occurred while creating the Dimensions."
       });
     });
 };
 
-// Retrieve all Dimentions from the database.
+// Retrieve all Dimensions from the database.
 exports.findAll = (req, res) => {
-  Dimentions.findAll()
+  Dimensions.findAll()
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving dimentions."
+          err.message || "Some error occurred while retrieving dimensions."
       });
     });
 };
 
-// Find a single Dimentions with an id
+// Find a single Dimensions with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Dimentions.findByPk(id)
+  Dimensions.findByPk(id)
     .then(data => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find Dimentions with id=${id}.`
+          message: `Cannot find Dimensions with id=${id}.`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Dimentions with id=" + id
+        message: "Error retrieving Dimensions with id=" + id
       });
     });
 };
 
-// Update a Dimentions by the id in the request
+// Update a Dimensions by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  Dimentions.update(req.body, {
+  Dimensions.update(req.body, {
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Dimentions was updated successfully."
+          message: "Dimensions was updated successfully."
         });
       } else {
         res.send({
-          message: `Cannot update Dimentions with id=${id}. Maybe Dimentions was not found or req.body is empty!`
+          message: `Cannot update Dimensions with id=${id}. Maybe Dimensions was not found or req.body is empty!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Dimentions with id=" + id
+        message: "Error updating Dimensions with id=" + id
       });
     });
 };
 
-// Delete a Dimentions with the specified id in the request
+// Delete a Dimensions with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Dimentions.destroy({
+  Dimensions.destroy({
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Dimentions was deleted successfully!"
+          message: "Dimensions was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete Dimentions with id=${id}. Maybe Dimentions was not found!`
+          message: `Cannot delete Dimensions with id=${id}. Maybe Dimensions was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Dimentions with id=" + id
+        message: "Could not delete Dimensions with id=" + id
       });
     });
 };
 
-// Delete all Dimentions from the database.
+// Delete all Dimensions from the database.
 exports.deleteAll = (req, res) => {
-  Dimentions.destroy({
+  Dimensions.destroy({
     where: {},
     truncate: false
   })
