@@ -1,9 +1,9 @@
 import db from "../models/index.js";
-const Mobs = db.mobs;
+const Foods = db.Foods;
 const Op = db.Sequelize.Op;
 const exports = {};
 
-// Create and Save a new Mobs
+// Create and Save a new Foods
 exports.create = (req, res) => {
   // Validate request
   if (!req.body) {
@@ -13,125 +13,125 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a Mobs
+  // Create a Foods
   const modelData = req.body;
 
-  // Save Mobs in the database
-  Mobs.create(modelData)
+  // Save Foods in the database
+  Foods.create(modelData)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Mobs."
+          err.message || "Some error occurred while creating the Foods."
       });
     });
 };
 
-// Retrieve all Mobs from the database.
+// Retrieve all Foods from the database.
 exports.findAll = (req, res) => {
-  Mobs.findAll()
+  Foods.findAll()
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving mobs."
+          err.message || "Some error occurred while retrieving Foods."
       });
     });
 };
 
-// Find a single Mobs with an id
+// Find a single Foods with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Mobs.findByPk(id)
+  Foods.findByPk(id)
     .then(data => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find Mobs with id=${id}.`
+          message: `Cannot find Foods with id=${id}.`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Mobs with id=" + id
+        message: "Error retrieving Foods with id=" + id
       });
     });
 };
 
-// Update a Mobs by the id in the request
+// Update a Foods by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  Mobs.update(req.body, {
+  Foods.update(req.body, {
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Mobs was updated successfully."
+          message: "Foods was updated successfully."
         });
       } else {
         res.send({
-          message: `Cannot update Mobs with id=${id}. Maybe Mobs was not found or req.body is empty!`
+          message: `Cannot update Foods with id=${id}. Maybe Foods was not found or req.body is empty!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Mobs with id=" + id
+        message: "Error updating Foods with id=" + id
       });
     });
 };
 
-// Delete a Mobs with the specified id in the request
+// Delete a Foods with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Mobs.destroy({
+  Foods.destroy({
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Mobs was deleted successfully!"
+          message: "Foods was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete Mobs with id=${id}. Maybe Mobs was not found!`
+          message: `Cannot delete Foods with id=${id}. Maybe Foods was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Mobs with id=" + id
+        message: "Could not delete Foods with id=" + id
       });
     });
 };
 
-// Delete all Mobs from the database.
+// Delete all Foods from the database.
 exports.deleteAll = (req, res) => {
-  Mobs.destroy({
+  Foods.destroy({
     where: {},
     truncate: false
   })
     .then(nums => {
-      res.send({ message: `${nums} Mobs were deleted successfully!` });
+      res.send({ message: `${nums} Foods were deleted successfully!` });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all mobs."
+          err.message || "Some error occurred while removing all Foods."
       });
     });
 };
 
-// Find all published Mobs
+// Find all published Foods
 exports.findAllPublished = (req, res) => {
 
 };

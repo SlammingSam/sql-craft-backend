@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelizeInstance.js";
 
 const Player = sequelize.define("Player", {
-  player_id: {
+  id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
@@ -41,7 +41,7 @@ const Player = sequelize.define("Player", {
   current_chunk_id: { type: DataTypes.INTEGER, allowNull: true },
 });
 // Add FK reference for Player.current_chunk_id -> Chunks.chunk_id
-Player.rawAttributes.current_chunk_id.references = { model: "Chunks", key: "chunk_id" };
+Player.rawAttributes.current_chunk_id.references = { model: "Chunks", key: "id" };
 Player.rawAttributes.current_chunk_id.onDelete = "SET NULL";
 Player.rawAttributes.current_chunk_id.onUpdate = "CASCADE";
 Player.refreshAttributes();

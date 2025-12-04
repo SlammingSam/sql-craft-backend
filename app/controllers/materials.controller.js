@@ -1,9 +1,9 @@
 import db from "../models/index.js";
-const Villager = db.villager;
+const Materials = db.Materials;
 const Op = db.Sequelize.Op;
 const exports = {};
 
-// Create and Save a new Villager
+// Create and Save a new Materials
 exports.create = (req, res) => {
   // Validate request
   if (!req.body) {
@@ -13,125 +13,125 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a Villager
+  // Create a Materials
   const modelData = req.body;
 
-  // Save Villager in the database
-  Villager.create(modelData)
+  // Save Materials in the database
+  Materials.create(modelData)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Villager."
+          err.message || "Some error occurred while creating the Materials."
       });
     });
 };
 
-// Retrieve all Villager from the database.
+// Retrieve all Materials from the database.
 exports.findAll = (req, res) => {
-  Villager.findAll()
+  Materials.findAll()
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving villager."
+          err.message || "Some error occurred while retrieving Materials."
       });
     });
 };
 
-// Find a single Villager with an id
+// Find a single Materials with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Villager.findByPk(id)
+  Materials.findByPk(id)
     .then(data => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find Villager with id=${id}.`
+          message: `Cannot find Materials with id=${id}.`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Villager with id=" + id
+        message: "Error retrieving Materials with id=" + id
       });
     });
 };
 
-// Update a Villager by the id in the request
+// Update a Materials by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  Villager.update(req.body, {
+  Materials.update(req.body, {
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Villager was updated successfully."
+          message: "Materials was updated successfully."
         });
       } else {
         res.send({
-          message: `Cannot update Villager with id=${id}. Maybe Villager was not found or req.body is empty!`
+          message: `Cannot update Materials with id=${id}. Maybe Materials was not found or req.body is empty!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Villager with id=" + id
+        message: "Error updating Materials with id=" + id
       });
     });
 };
 
-// Delete a Villager with the specified id in the request
+// Delete a Materials with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Villager.destroy({
+  Materials.destroy({
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Villager was deleted successfully!"
+          message: "Materials was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete Villager with id=${id}. Maybe Villager was not found!`
+          message: `Cannot delete Materials with id=${id}. Maybe Materials was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Villager with id=" + id
+        message: "Could not delete Materials with id=" + id
       });
     });
 };
 
-// Delete all Villager from the database.
+// Delete all Materials from the database.
 exports.deleteAll = (req, res) => {
-  Villager.destroy({
+  Materials.destroy({
     where: {},
     truncate: false
   })
     .then(nums => {
-      res.send({ message: `${nums} Villager were deleted successfully!` });
+      res.send({ message: `${nums} Materials were deleted successfully!` });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all villager."
+          err.message || "Some error occurred while removing all Materials."
       });
     });
 };
 
-// Find all published Villager
+// Find all published Materials
 exports.findAllPublished = (req, res) => {
 
 };
