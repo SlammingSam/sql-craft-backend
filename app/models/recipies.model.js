@@ -8,15 +8,15 @@ const Recipes = sequelize.define("Recipes", {
     primaryKey: true,
   },
   inShape: {
-    type: DataTypes.JSON,
+    type: DataTypes.STRING,
     allowNull: true,
   },
   ingredients: {
-    type: DataTypes.JSON,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   result: { 
-    type: DataTypes.JSON, 
+    type: DataTypes.STRING, 
     allowNull: false,
   },
 });

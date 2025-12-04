@@ -12,9 +12,6 @@ const Worlds = sequelize.define("Worlds", {
   setting_id: { 
     type: DataTypes.INTEGER, 
     allowNull: true,
-    references: { model: "WorldSettings", key: "id" },
-    onDelete: "SET NULL",
-    onUpdate: "CASCADE",
   },
   weather: { type: DataTypes.ENUM("SUNNY", "RAINY", "STORMY"), allowNull: true },
   spawn_point_x: { type: DataTypes.INTEGER, allowNull: true },

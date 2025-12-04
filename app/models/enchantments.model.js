@@ -17,11 +17,11 @@ const Enchantments = sequelize.define("Enchantments", {
     defaultValue: 1 
   },
   minCost: {
-    type: DataTypes.JSON,
+    type: DataTypes.INTEGER,
     allowNull: true,
   },
   maxCost: {
-    type: DataTypes.JSON,
+    type: DataTypes.INTEGER,
     allowNull: true,
   },
   treasureOnly: {
@@ -33,7 +33,7 @@ const Enchantments = sequelize.define("Enchantments", {
     allowNull: true,
   },
   exclude: {
-    type: DataTypes.JSON,
+    type: DataTypes.STRING,
     allowNull: true,
   },
   category: {

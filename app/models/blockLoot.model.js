@@ -16,7 +16,7 @@ const BlockLoot = sequelize.define("BlockLoot", {
     allowNull: false 
   },
   stackSizeRange: { 
-    type: DataTypes.JSON, 
+    type: DataTypes.INTEGER, 
     allowNull: false 
   },
 });

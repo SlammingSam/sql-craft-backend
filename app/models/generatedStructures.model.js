@@ -18,8 +18,8 @@ const GeneratedStructures = sequelize.define("GeneratedStructures", {
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
   },
-  map: { type: 
-    DataTypes.JSON, 
+  map: { 
+    type: DataTypes.STRING, 
     allowNull: true 
   },
 });
